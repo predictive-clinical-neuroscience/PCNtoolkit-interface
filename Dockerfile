@@ -1,14 +1,10 @@
-FROM python:3.8-slim-buster
+FROM jupyter/scipy-notebook
 
-COPY requirements.txt /requirements.txt
+COPY apply_normative_models.py ./
+COPY models/* models/
+COPY docs/* docs/
 
-RUN pip install -r requirements.txt
-
-ADD . /app
-
-WORKDIR /app
-
-EXPOSE 8000
-
-
-#CMD ["flask", "run", "--host=0.0.0.0", "--port=8000"]
+RUN pip install pcntoolkit==0.20
+RUN pip install dash
+RUN pip install flask
+RUN pip install plotly
