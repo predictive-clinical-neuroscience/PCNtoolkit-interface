@@ -1,1 +1,1 @@
-# Repository for PCNtoolkit Docker Normative Models
+# Repository for PCNtoolkit Normative Models via Docker Container
