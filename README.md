@@ -17,7 +17,7 @@ This is a python-based container that will install the necessary packages to run
 
 3. Run the container, and mount the GitHub repository using the Volume (-v) flag. Change the path to match the location of the cloned GitHub repository.
 
-```docker run -v /path/to/PCNtoolkit-interface/repo:/home/jovyan/ pcntoolkit-interface python3 apply_normative_models.py```
+```docker run -v /path/to/PCNtoolkit-interface/repo:/home/jovyan/ pcntoolkit-interface python apply_normative_models.py```
 
 ## After the script has run:
 
