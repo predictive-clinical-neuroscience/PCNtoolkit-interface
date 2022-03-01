@@ -7,17 +7,17 @@ This is a python-based container that will install the necessary packages to run
 ## Setup Steps: 
 1. Clone this GitHub repository and `cd` into the cloned repository.
 
-```git clone git@github.com:saigerutherford/PCNtoolkit-interface.git```
+    ```git clone git@github.com:saigerutherford/PCNtoolkit-interface.git```
 
-```cd PCNtoolkit-interface```
+    ```cd PCNtoolkit-interface```
 
 2. Pull the Docker image from DockerHub
 
-```docker pull saruther/pcntoolkit-interface```
+    ```docker pull saruther/pcntoolkit-interface```
 
 3. Run the container, and mount the GitHub repository using the Volume (-v) flag. Change the path to match the location of the cloned GitHub repository.
 
-```docker run -v /path/to/PCNtoolkit-interface/repo:/home/jovyan/ pcntoolkit-interface python apply_normative_models.py```
+    ```docker run -v /path/to/PCNtoolkit-interface/repo:/home/jovyan/ pcntoolkit-interface python apply_normative_models.py```
 
 ## After the script has run:
 
