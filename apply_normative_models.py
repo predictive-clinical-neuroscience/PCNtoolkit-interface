@@ -136,7 +136,8 @@ def main(root_dir=os.getcwd()):
     Z_df['sub_id'] = df_te['sub_id']
     df_te_Z = pd.merge(df_te, Z_df, on='sub_id', how='inner')
     df_te_Z.to_csv('deviation_scores.csv', index=False)
-    deleteFiles = [file for file in os.listdir(z_dir) if file.endswith('.txt')]
-    os.remove(deleteFiles)
+    for f in os.listdir(z_dir):
+        if f.endswith('.txt'):
+            os.remove(z_dir + f)
 
 main()
