@@ -119,11 +119,11 @@ def main(root_dir=os.getcwd()):
                                         testvargroupfile = sitenum_file_te)
 
 
-    path = root_dir + '/models/lifespan_57K_82sites/'
-    z_dir = path + 'deviation_scores/'
+    path = os.path.join(root_dir, 'models','lifespan_57K_82sites')
+    z_dir = os.path.join(path + 'deviation_scores')
 
     for dirname in os.listdir(path):
-        filename = path + str(dirname) + '/Z_predict.txt'
+        filename = os.path.join(path, dirname,'Z_predict.txt')
         path_check = Path(filename)
         if path_check.is_file():
             newname = z_dir + str(dirname) + '_Z_predict.txt'
