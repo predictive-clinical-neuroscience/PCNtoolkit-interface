@@ -120,7 +120,7 @@ def main(root_dir=os.getcwd()):
 
 
     path = root_dir + '/models/lifespan_57K_82sites/'
-    z_dir = path + '/deviation_scores/'
+    z_dir = path + 'deviation_scores/'
 
     for dirname in os.listdir(path):
         filename = path + str(dirname) + '/Z_predict.txt'
