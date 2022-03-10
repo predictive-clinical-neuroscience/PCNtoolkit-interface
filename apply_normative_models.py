@@ -9,8 +9,6 @@ Written by Saige Rutherford on 18-02-2022.
 '''
 
 import os
-import shutil
-from pathlib import Path
 import numpy as np
 import pandas as pd
 from pcntoolkit.normative import predict
@@ -118,26 +116,5 @@ def main(root_dir=os.getcwd()):
                                         adaptvargroupfile = sitenum_file_ad,
                                         testvargroupfile = sitenum_file_te)
 
-
-    path = os.path.join(root_dir, 'models','lifespan_57K_82sites')
-    z_dir = os.path.join(path + 'deviation_scores')
-
-    for dirname in os.listdir(path):
-        filename = os.path.join(path, dirname,'Z_predict.txt')
-        path_check = Path(filename)
-        if path_check.is_file():
-            newname = z_dir + str(dirname) + '_Z_predict.txt'
-            shutil.copy(filename, newname)
-
-    filelist = [name for name in os.listdir(z_dir)]
-    os.chdir(z_dir)
-    Z_df = pd.concat([pd.read_csv(item, names=[item[:-4]]) for item in filelist], axis=1)
-    df_te.reset_index(inplace=True)
-    Z_df['sub_id'] = df_te['sub_id']
-    df_te_Z = pd.merge(df_te, Z_df, on='sub_id', how='inner')
-    df_te_Z.to_csv('deviation_scores.csv', index=False)
-    for f in os.listdir(z_dir):
-        if f.endswith('.txt'):
-            os.remove(z_dir + f)
 
 main()
