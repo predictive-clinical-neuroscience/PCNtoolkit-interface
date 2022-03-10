@@ -21,4 +21,4 @@ This is a python-based container that will install the necessary packages to run
 
 ## After the script has run:
 
-There will be a file called `deviation_scores.csv` that is located in `/models/lifespan_57K_82sites/deviation_scores/`. This file contains the Z-scores (deviation scores) for all subjects in the test set. Rows are subjects, columns are ROIs. 
+There will be a file called `Z_predict.txt` that is located in each subdirectory in `/models/lifespan_57K_82sites/`. This file contains the Z-scores (deviation scores) for all subjects in the test set. There is one subdirectory and corresponding Z_predict.txt file for every model that was run. 
