@@ -1,5 +1,7 @@
 FROM jupyter/scipy-notebook
 
+MKDIR models
+MKDIR models/lifespan57K_82sites/
 COPY apply_normative_models.py ./
 COPY models/lifespan57K_82sites/* models/lifespan57K_82sites/
 COPY docs/* docs/
