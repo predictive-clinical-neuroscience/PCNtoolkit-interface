@@ -3,10 +3,10 @@ FROM jupyter/scipy-notebook
 RUN mkdir -p /home/jovyan/models
 RUN mkdir -p /home/jovyan/models/lifespan57K_82sites
 
-COPY apply_normative_models.py ./
-COPY models/lifespan57K_82sites/* models/lifespan57K_82sites/
-COPY docs/* docs/
-COPY app_df.py ./
+COPY apply_normative_models.py /home/jovyan/
+COPY models/lifespan57K_82sites/* /home/jovyan/models/lifespan57K_82sites/
+COPY docs/* /home/jovyan/docs/
+COPY app_df.py /home/jovyan/
 
 RUN pip install pcntoolkit==0.20
 RUN pip install dash
