@@ -1,10 +1,10 @@
 FROM jupyter/scipy-notebook
 
 RUN mkdir -p /home/jovyan/models
-RUN mkdir -p /home/jovyan/models/lifespan57K_82sites
+RUN mkdir -p /home/jovyan/models/lifespan_57K_82sites
 
 COPY apply_normative_models.py /home/jovyan/
-COPY models/lifespan57K_82sites/* /home/jovyan/models/lifespan57K_82sites/
+COPY models/lifespan_57K_82sites/* /home/jovyan/models/lifespan_57K_82sites/
 COPY docs/* /home/jovyan/docs/
 COPY app_df.py /home/jovyan/
 
