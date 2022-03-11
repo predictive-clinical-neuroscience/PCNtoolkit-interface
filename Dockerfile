@@ -10,6 +10,3 @@ RUN pip install dash
 RUN pip install flask
 RUN pip install plotly
 RUN pip install gunicorn
-
-
- CMD [ "gunicorn", "--workers=5", "--threads=1", "-b 0.0.0.0:80", "app:server"]
