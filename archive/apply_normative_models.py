@@ -8,15 +8,13 @@ The Dockerfile sets up the required dependencies and necessary data files and di
 Written by Saige Rutherford on 18-02-2022.
 '''
 
-import os, sys
+import os
 import numpy as np
 import pandas as pd
 from pcntoolkit.normative import predict
 from pcntoolkit.util.utils import create_design_matrix
 
-def main(root_dir="/home/preclineu/piebar/Documents/PCN_directory"):
-   # print(sys.path)
-    #print(os.getcwd())
+def main(root_dir=os.getcwd()):
     site_names = 'site_ids_82sites.txt'
     model_name = 'lifespan_57K_82sites'
 
@@ -62,12 +60,10 @@ def main(root_dir="/home/preclineu/piebar/Documents/PCN_directory"):
         # extract and save the response variables for the test set
         y_te = df_te[idp].to_numpy()
         
-        print("sys path: ",sys.path)
-        print("os path: ", os.getcwd())
-        
+        # save the variables
         resp_file_te = os.path.join(idp_dir, 'resp_te.txt') 
-        print("resp_file_te path: ", resp_file_te)
         np.savetxt(resp_file_te, y_te)
+            
         # configure and save the design matrix
         cov_file_te = os.path.join(idp_dir, 'cov_bspline_te.txt')
         X_te = create_design_matrix(df_te[cols_cov], 
@@ -121,4 +117,4 @@ def main(root_dir="/home/preclineu/piebar/Documents/PCN_directory"):
                                         testvargroupfile = sitenum_file_te)
 
 
-
+main()

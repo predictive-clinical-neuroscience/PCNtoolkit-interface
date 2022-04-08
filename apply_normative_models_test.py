@@ -8,13 +8,14 @@ The Dockerfile sets up the required dependencies and necessary data files and di
 Written by Saige Rutherford on 18-02-2022.
 '''
 
-import os, sys
-import numpy as np
-import pandas as pd
-from pcntoolkit.normative import predict
-from pcntoolkit.util.utils import create_design_matrix
 
-def main(root_dir="/home/preclineu/piebar/Documents/PCN_directory"):
+
+def apply_normative_model(app_test_data, root_dir="/home/preclineu/piebar/Documents/PCN_directory"):
+    import os, sys
+    import numpy as np
+    import pandas as pd
+    from pcntoolkit.normative import predict
+    from pcntoolkit.util.utils import create_design_matrix
    # print(sys.path)
     #print(os.getcwd())
     site_names = 'site_ids_82sites.txt'
@@ -27,8 +28,8 @@ def main(root_dir="/home/preclineu/piebar/Documents/PCN_directory"):
     with open(os.path.join(root_dir,'docs', site_names)) as f:
         site_ids_tr = f.read().splitlines()
 
-    test_data = os.path.join(root_dir, 'docs/OpenNeuroTransfer_te.csv')
-    df_te = pd.read_csv(test_data)
+    #test_data = os.path.join(root_dir, 'docs/OpenNeuroTransfer_te.csv')
+    df_te = app_test_data#pd.read_csv(test_data)
 
     # extract a list of unique site ids from the test set
     site_ids_te =  sorted(set(df_te['site'].to_list()))
@@ -62,11 +63,11 @@ def main(root_dir="/home/preclineu/piebar/Documents/PCN_directory"):
         # extract and save the response variables for the test set
         y_te = df_te[idp].to_numpy()
         
-        print("sys path: ",sys.path)
-        print("os path: ", os.getcwd())
+        # print("sys path: ",sys.path)
+        # print("os path: ", os.getcwd())
         
         resp_file_te = os.path.join(idp_dir, 'resp_te.txt') 
-        print("resp_file_te path: ", resp_file_te)
+        # print("resp_file_te path: ", resp_file_te)
         np.savetxt(resp_file_te, y_te)
         # configure and save the design matrix
         cov_file_te = os.path.join(idp_dir, 'cov_bspline_te.txt')
@@ -119,6 +120,6 @@ def main(root_dir="/home/preclineu/piebar/Documents/PCN_directory"):
                                         adaptcovfile = cov_file_ad,
                                         adaptvargroupfile = sitenum_file_ad,
                                         testvargroupfile = sitenum_file_te)
-
+    return "normative model prediction complete"
 
 

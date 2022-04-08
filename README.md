@@ -2,6 +2,8 @@
 
 [View on Docker Hub](https://hub.docker.com/r/saruther/pcntoolkit-interface)
 
+**Note:** The docker-compose YAML file was copied from this GitHub [repository](https://github.com/Donders-Institute/filer-gateway/blob/master/docker-compose.yml) and has not been edited at all (yet), meaning it is just a template/placeholder.
+
 This is a python-based container that will install the necessary packages to run pre-trained cortical thickness and subcortical volume normative models and transfer these models to an unseen test set. The models are described in [Rutherford et al](https://elifesciences.org/articles/72904). The transfer test set is currently a multi-site dataset using public data from [OpenNeuro](https://openneuro.org/). This build currently does not support using your own transfer data set. This feature (uploading your own dataset) is actively being developed and a future release will allow users an option to input their own transfer data set. 
 
 ## Setup Steps: 
