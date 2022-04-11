@@ -1,4 +1,5 @@
 FROM centos:7
+apt-get update && apt-get install -y software-properties-common
 RUN add-apt-repository ppa:deadsnakes/ppa
 RUN apt update
 RUN apt install python3.8
