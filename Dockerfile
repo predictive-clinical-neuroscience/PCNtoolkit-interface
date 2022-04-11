@@ -1,10 +1,10 @@
-FROM ubuntu:18.04
+FROM centos:7
 RUN add-apt-repository ppa:deadsnakes/ppa
 RUN apt update
 RUN apt install python3.8
 RUN apt install python3-pip
 RUN python3.8 -m pip install auto-sklearn
-RUN python3.8 -m pip install pandas 
+RUN python3.8 -m pip install pandas
 RUN python3.8 -m pip install pcntoolkit==0.20
 RUN python3.8 -m pip install dash
 RUN python3.8 -m pip install flask
