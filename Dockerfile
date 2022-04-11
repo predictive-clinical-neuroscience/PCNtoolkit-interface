@@ -1,5 +1,5 @@
 FROM centos:7
-RUN apt-get update && apt-get install -y software-properties-common
+RUN yum update && yum install -y software-properties-common
 RUN add-apt-repository ppa:deadsnakes/ppa
 RUN apt update
 RUN apt install python3.8
